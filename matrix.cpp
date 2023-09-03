@@ -2,23 +2,27 @@
 #include "matrix.h"
 
 
-void print_data(const char* const data, const size_t size_x, const size_t size_y)
+int main()
 {
-	for (size_t pos_y = 0; pos_y < size_y; pos_y++)
-	{
-		for (size_t pos_x = 0; pos_x < size_x; pos_x++)
-		{
-			DEBUG_EXEC(printf("\n printed data[%llu][%llu]: %c", pos_x, pos_y, data[pos_y * size_x + pos_x]));			
-		}
-		printf("\n");
-	}
+	const size_t SIZE_X = 4;
+	const size_t SIZE_Y = 2;
+	const size_t SIZE = 3;
+
+	char data[SIZE_X * SIZE_Y] = {};
+
+	//input_data_triangle(data, SIZE);
+
+	//print_data_triangle(data, SIZE);
+
+	input_data_rect(data, SIZE_X, SIZE_Y);
+
+	print_data_rect(data, SIZE_X, SIZE_Y); 
 }
 
 
 char scan_char() 
 {
 	char symbol;
-
 	while (((symbol = getchar()) == ' ') || (symbol == '\n'))
 	{
 		if (symbol == '\0')
@@ -26,18 +30,15 @@ char scan_char()
 			return NOT_SCANNED;
 		}
 	}
-
 	return symbol;
 }
 
 
-int input_data(char* const data, const size_t size_x, const size_t size_y)
+int input_data(char* const data, const size_t target)
 {
-	size_t scanned_number = 0;
-
-	const size_t target = size_x * size_y;
-
 	char symbol;
+
+	size_t scanned_number = 0;
 
 	while (scanned_number < target)
 	{
@@ -47,10 +48,10 @@ int input_data(char* const data, const size_t size_x, const size_t size_y)
 
 		symbol = scan_char();
 
-		/*if ((symbol = scan_char()) == NOT_SCANNED)
+		if (symbol == NOT_SCANNED)
 		{
 			return NOT_SCANNED;
-		} */
+		} 
 
 		data[scanned_number] = symbol;
 
@@ -61,13 +62,4 @@ int input_data(char* const data, const size_t size_x, const size_t size_y)
 }
 
 
-int main()
-{
-	const size_t SIZE_X = 4;
-	const size_t SIZE_Y = 2;
 
-	char data[SIZE_X * SIZE_Y] = {};
-	input_data(data, SIZE_X, SIZE_Y);	
-
-	print_data(data, SIZE_X, SIZE_Y); 
-}
