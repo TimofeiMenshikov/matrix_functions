@@ -1,3 +1,6 @@
+#ifndef MATRIX_H
+#define MATRIX_H
+
 enum is_scanned
 {
 	SCANNED = 1,
@@ -15,18 +18,10 @@ enum is_scanned
     #define DEBUG_EXEC(function)
 #endif /* INPUT_DEBUG */ 
 
-
 /* matrix.cpp */
 char scan_char();
 int input_data(char* const data, const size_t target);
+void print_one_element(size_t pos_x, size_t pos_y, char symbol);
 /* matrix.cpp */
 
-/* rect_matrix.cpp*/
-void print_data_rect(const char* const data, const size_t size_x, const size_t size_y);
-int input_data_rect(char* const data, const size_t size_x, const size_t size_y);
-/* rect_matrix.cpp*/
-
-/*triangle_matrix.cpp*/
-void print_data_triangle(const char* const data, const size_t size);
-int input_data_triangle(char* const data, const size_t size);
-/*triangle_matrix.cpp*/
+#endif /* MATRIX_H */

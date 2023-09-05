@@ -10,8 +10,8 @@ void print_data_rect(const char* const data, const size_t size_x, const size_t s
 	{
 		for (size_t pos_x = 0; pos_x < size_x; pos_x++)
 		{
-			DEBUG_EXEC(printf("\n printed data[%llu][%llu]: ", pos_x, pos_y));			
-			printf("%c ", data[char_number]);
+			print_one_element(pos_x, pos_y, data[char_number]);
+
 
 			char_number++;
 
@@ -22,6 +22,16 @@ void print_data_rect(const char* const data, const size_t size_x, const size_t s
 		}
 		printf("\n");
 	}
+}
+
+
+
+void print_data_rect_mod(const char* const data) // в массиве первый элемент - размер по y, второй элемент - размер по x
+{
+	const size_t size_y = data[0];
+	const size_t size_x = data[1];
+	
+	print_data_rect(data + 2, size_x, size_y);
 }
 
 
