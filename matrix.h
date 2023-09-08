@@ -7,6 +7,8 @@ enum is_scanned
 	NOT_SCANNED = 0
 };
 
+#define matrix_offset(data, pos_x, pos_y, size_x) data + pos_y * size_x + pos_x
+
 #ifdef INPUT_DEBUG
     #define DEBUG_EXEC(function)    \
         do                          \

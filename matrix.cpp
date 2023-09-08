@@ -1,7 +1,9 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "matrix.h"
 #include "triangle_matrix.h"
 #include "rect_matrix.h"
+
 
 
 int main()
@@ -20,9 +22,10 @@ int main()
 
 	//print_data_rect(data, SIZE_X, SIZE_Y); 
 
-	char data[] = {1, 1, 1};
+	char data[] = {1, 2, 3, 4,
+				   5, 6, 7, 8};
 
-	print_data_rect_mod(data);
+	print_data_rect(data, SIZE_X, SIZE_Y);
 }
 
 
@@ -75,3 +78,5 @@ void print_one_element(size_t pos_x, size_t pos_y, char symbol)
 	DEBUG_EXEC(printf("\n printed data[%llu][%llu]: ", pos_x, pos_y));			
 	printf("%c(%d) ", symbol, symbol);
 }
+
+

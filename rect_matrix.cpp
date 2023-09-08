@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "matrix.h"
+#include "rect_matrix.h"
 
 void print_data_rect(const char* const data, const size_t size_x, const size_t size_y)
 {
@@ -11,7 +13,6 @@ void print_data_rect(const char* const data, const size_t size_x, const size_t s
 		for (size_t pos_x = 0; pos_x < size_x; pos_x++)
 		{
 			print_one_element(pos_x, pos_y, data[char_number]);
-
 
 			char_number++;
 

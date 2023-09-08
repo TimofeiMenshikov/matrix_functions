@@ -1,5 +1,7 @@
 #include <stdio.h>
+#include <ctype.h>
 #include "matrix.h"
+#include "triangle_matrix.h"
 
 
 void print_data_triangle(const char* const data, const size_t size)
